@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>PERSON</title>
 </head>
 <body>
+
 <h2>Person</h2>
 
-<a th:text="${person.getId()}">Value</a><br/>
+<a th:text="${person}">Value</a><br/>
 <a th:text="${'Name - ' + person.getName() + '.'}">Value</a><br/>
 <a th:text="${'Age - ' + person.getAge() + '.'}">Value</a><br/>
 <a th:text="${'Email - ' + person.getEmail() + '.'}">Value</a>

@@ -1,21 +1,28 @@
 package ru.mrSergey.models;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-
+@Entity
+@Table(name = "person")
 public class Person {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "name")
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, max = 15, message = "Name should be between 2 and 15 characters")
     private String name;
+    @Column(name = "age")
     @Min(value = 0, message = "Age should be greater than 0")
     @Max(value = 105, message = "Age should be less than 105")
     private int age;
+    @Column(name = "email")
     @NotEmpty(message = "Email should not be empty")
     @Email(message = "Is wrong email")
     private String email;
 
-    public Person(int id, String name, int age, String email) {
-        this.id = id;
+    public Person(String name, int age, String email) {
         this.name = name;
         this.age = age;
         this.email = email;
@@ -23,7 +30,6 @@ public class Person {
 
     public Person() {
     }
-
     public int getId() {
         return id;
     }

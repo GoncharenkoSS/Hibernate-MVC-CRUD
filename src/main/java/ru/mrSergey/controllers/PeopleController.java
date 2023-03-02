@@ -8,18 +8,16 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.mrSergey.DAO.PersonDAO;
 import ru.mrSergey.models.Person;
-import ru.mrSergey.util.PersonValidator;
 
 @Controller
 @RequestMapping("/people")
 public class PeopleController {
 
     private final PersonDAO personDAO;
-    private final PersonValidator personValidator;
+
     @Autowired
-    public PeopleController(PersonDAO personDAO, PersonValidator personValidator) {
+    public PeopleController(PersonDAO personDAO) {
         this.personDAO = personDAO;
-        this.personValidator = personValidator;
     }
 
     @GetMapping()
@@ -40,8 +38,6 @@ public class PeopleController {
     @PostMapping
     public String create(@ModelAttribute("person") @Valid Person person,
                          BindingResult bindingResult){
-        personValidator.validate(person, bindingResult);
-
         if(bindingResult.hasErrors())
             return "people/new";
         personDAO.save(person);
