@@ -23,6 +23,8 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 import javax.sql.DataSource;
 import java.util.Objects;
 import java.util.Properties;
+//Этот конфиг без русификации
+
 
 @Configuration
 @EnableWebMvc
@@ -39,7 +41,7 @@ public class SpringConfig implements WebMvcConfigurer {
         this.applicationContext = applicationContext;
         this.environment = environment;
     }
-
+    //Стандарт МВС
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
@@ -48,7 +50,7 @@ public class SpringConfig implements WebMvcConfigurer {
         templateResolver.setSuffix(".html");
         return templateResolver;
     }
-
+    //Стандарт МВС
     @Bean
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
@@ -56,13 +58,14 @@ public class SpringConfig implements WebMvcConfigurer {
         templateEngine.setEnableSpringELCompiler(true);
         return templateEngine;
     }
-
+    //Стандарт МВС
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setTemplateEngine(templateEngine());
         registry.viewResolver(resolver);
     }
+    //Методы получения данных о БД из файла пропертиес
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -79,7 +82,7 @@ public class SpringConfig implements WebMvcConfigurer {
 
         return properties;
     }
-
+    //Где брать модели для БД
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
@@ -89,7 +92,7 @@ public class SpringConfig implements WebMvcConfigurer {
 
         return sessionFactory;
     }
-
+    //Менеджер транзакций
     @Bean
     public PlatformTransactionManager hibernateTransactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();

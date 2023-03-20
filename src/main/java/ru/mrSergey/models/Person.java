@@ -2,6 +2,7 @@ package ru.mrSergey.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+//Аннотация модели
 @Entity
 @Table(name = "person")
 public class Person {

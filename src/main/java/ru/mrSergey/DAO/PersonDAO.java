@@ -17,9 +17,12 @@ public class PersonDAO {
     public PersonDAO(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
+
+    //Аннотация для методов (только чтение)
     @Transactional(readOnly = true)
     public List<Person> index() {
         Session session = sessionFactory.getCurrentSession();
+        // Язык HQL
         return session.createQuery("select p from Person p", Person.class). getResultList();
 
     }

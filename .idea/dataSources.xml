@@ -4,6 +4,7 @@
     <data-source source="LOCAL" name="first_db@localhost" uuid="db9c0602-242a-4718-97c4-491bdb4dc6cd">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
+      <remarks>Hibernate</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/first_db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>

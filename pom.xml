@@ -85,8 +85,6 @@
       <artifactId>spring-orm</artifactId>
       <version>6.0.4</version>
     </dependency>
-
-
   </dependencies>
   <build>
     <finalName>SpringMVC-16</finalName>
